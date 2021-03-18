@@ -4,6 +4,7 @@ import { Header } from "./components/Header";
 import { GlobalStyle } from "./styles/global";
 import { createServer } from 'miragejs'
 import Modal from "react-modal";
+import { NewTransactionModal } from "./components/NewTransactionModal";
 
 Modal.setAppElement('#root')
 
@@ -42,10 +43,8 @@ const App: React.FC = () => {
         <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
         <Dashboard />
 
+        <NewTransactionModal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionModal}></NewTransactionModal>
 
-        <Modal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionModal}>
-          <h2>Cadastrar transação</h2>
-        </Modal>
 
         <GlobalStyle />
       </div>
